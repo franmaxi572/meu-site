@@ -1,0 +1,18 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    
+    $to = "franmaxi572@gmail.com";  // Substitua pelo seu endereço de e-mail
+    $subject = "Novo Contato do Site";
+    $body = "Nome: $name\nEmail: $email\nMensagem:\n$message";
+    $headers = "From: $email";
+    
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Email enviado com sucesso!";
+    } else {
+        echo "Houve um erro ao enviar o email.";
+    }
+}
+?>
